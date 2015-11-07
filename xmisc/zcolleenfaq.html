@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="author" content="Colleen M. Smith">
+    <title>FAQ</title>
+    <style type="text/css">
+        body {
+            position: relative;
+            background-color: rgb(55,5,100);
+        }
+ 
+        h1{color: rgb(253,185,45); margin-left: 10px;}
+        h2 {
+            padding: 0 0 0 60px;
+            cursor: pointer;
+            height: 50px;
+            color: rgb(55,5,100);
+        }
+        p {
+            margin-left: 60px;
+            color: rgb(55,5,100);
+            font-size: 1.1em;
+        }
+
+        section {
+            border: solid 0px;
+            border-radius: 5px;
+
+        }
+        .close {
+            background: url('assets/close.png') no-repeat;
+        }
+        .open {
+            background: url('assets/open.png') no-repeat;
+        }
+        section {
+            margin: 10px;
+            padding: 10px;
+            background-color: #999;
+        }
+
+        img {
+            display: block;
+            margin-left: 57px;
+        }
+
+    </style>
+    <script type="text/javascript" src="jquery-1.11.1.js"></script>
+    <script type="text/javascript">
+        ////could use toggle which is show/hide but that would not allow for the graphics
+        $(document).ready(function () {
+            $('.answer').hide();
+            $
+
+            $('.main h2').click(function(){
+
+            var $currentAnswer = $(this).next('.answer');
+
+                if ($currentAnswer.is(':hidden')){
+
+                $('.main h2').removeClass('close');
+                $('.main h2').addClass('open');
+                $('.answer').slideUp();
+                $currentAnswer.slideDown();
+                $(this).removeClass('open');
+                $(this).addClass('close');
+
+                }else {
+
+                    $('.main h2').removeClass('close');
+                    $('.main h2').addClass('open');
+                    $('.answer').slideUp();
+                    $currentAnswer.slideUp();
+                    $(this).removeClass('close');
+                    $(this).addClass('open');
+                }
+   
+            });
+          
+        }); // end of ready()
+    </script>
+</head>
+
+<body>
+    <img src="assets/vikings4.png">
+    <div class="main">
+         <section>
+            <h2 class="open">How many starting quarterbacks has Minnesota had in it's 54-year history?</h2>
+            <p class="answer">The Vikings have had 34 starting QBs. George Shaw was the first, but was replace by Fran Tarkenton in the first game. Teddy Bridgewater is the current starter.</p>
+        </section>
+        <section>
+            <h2 class="open">Which QB holds the title for most starts in a Vikings jersey?</h2>
+            <p class="answer">Having been the franchise's starting quarterback for 13 seasons (longer than any other Vikings player), Fran Tarkenton holds the record for the most starts in a Vikings jersey, and those for the most wins and ties. He is also the franchise's leading passer in terms of numbers of attempts, completions, total yards gained and passing touchdowns. However, Tarkenton has also thrown the most interceptions.</p>
+        </section>
+        <section>
+            <h2 class="open">Who holds the record for all-time rushing yards?</h2>
+            <p class="answer">Adrian Peterson holds the record with 10,823 yards, starting with the team in 2007. Following his first pro season, in which he set an NFL record for most rushing yards in a single game (296), Peterson was named the NFL Offensive Rookie of the Year.</p>
+        </section>
+        <section>
+            <h2 class="open">Who is the Viking's all-time reciving leader?</h2>
+            <p class="answer">Cris Carter holds the title with 12,383 yards. He played for the Vikings from 1990-2001. To date, he is the only player drafted in the Supplemental draft to eventually be elected into the Hall of Fame. Carter is widely considered among the greatest wide receivers of all time.</p>
+        </section>
+
+        <section>
+            <h2 class="open">Who is the Viking's winningest coach of all time?</h2>
+            <p class="answer">Harry Peter "Bud" Grant led the team to 158 victories. He is the 3rd winningest professional football coach,behind Don Shula and George Halas. He was the first coach in the history of professional football to guide teams to the Grey Cup finals (CFL) and the Super Bowl. Grant attended the U of M and was a three-sport athlete, in football, basketball, and baseball. After college, he played for the Minneapolis Lakers of the National Basketball Association (NBA), the Philadelphia Eagles of the NFL, and the Winnipeg Blue Bombers of the CFL. To date he is the only man in history to play professionally in both the NFL and the NBA.</p>
+        </section>
+    </div>
+</body>
+
+</html>
