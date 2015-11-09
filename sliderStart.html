@@ -4,28 +4,42 @@
 <head>
     <title>slider</title>
     <style type="text/css">
+    body {
+     background-color: gray;
+        opacity: 50%;
+        }
+        
+    #bark {
+     color: aliceblue;
+        font-family: serif;
+            text-align: center;
+        font-size: 150px;
+        
+    }
+        
     * {
         margin: 0;
         padding: 0;
     }
     
     img {
-        width: 360px;
-        height: 240px;
+        width: 408px;
+        height: 306px;
     }
     
     #slider {
         position: relative;
         overflow: hidden;
-        margin: 20px auto 0 auto;
-        border-radius: 4px;
+        margin: 5% auto 0 auto;
+        border: 15px solid darkblue;
+        border-radius: 100%;
     }
     
     #slider ul {
         position: relative;
         margin: 0;
         padding: 0;
-        height: 240px;
+        height: 306px;
         list-style: none;
     }
     
@@ -33,11 +47,11 @@
         position: relative;
         display: block;
         float: left;
-        width: 360px;
-        height: 240px;
-        background: #ccc;
+        width: 408px;
+        height: 306px;
+        background: black;
         text-align: center;
-        line-height: 300px;
+        line-height: 306px;
     }
     
     a.control_prev,
@@ -49,13 +63,15 @@
         padding: 4% 3%;
         width: auto;
         height: auto;
-        background: #2a2a2a;
+        background: darkblue;
         color: #fff;
+         border-radius: 50%;
         text-decoration: none;
         font-weight: 600;
         font-size: 18px;
         opacity: 0.8;
         cursor: pointer;
+       
     }
     
     a.control_prev:hover,
@@ -78,11 +94,74 @@
     <script type="text/javascript">
     $(document).ready(function() {
 
+        var slideCount = $('#slider ul li').length;
+        var slideWidth = $('#slider ul li').width();
+        var slideHeight = $('#slider ul li').height();
+        var sliderUlWidth = slideCount * slideWidth;
+        
+        $('#slider').css({
+            width: slideWidth,
+            height: slideHeight
+        });
+        
+        $('#slider ul').css({
+           width: sliderUlWidth,
+            marginLeft: -slideWidth
+        });
+        
+        
+        $('#slider ul li:last-child').prependTo('#slider ul');
+        
+        function moveLeft() {
+            $('#slider ul').animate({
+                left: +slideWidth
+            }, 1500, function() {
+                $('#slider ul li:last-child').prependTo('#slider ul');
+                $('#slider ul').css('left', '0px');
+            });
+            
+            console.log($('#slider ul').css('left'));
+            resetTimer();
+        };
+        
+        function moveRight() {
+            $('#slider ul').animate({
+                left: -slideWidth
+            }, 1500, function() {
+                $('#slider ul li:first-child').appendTo('#slider ul');
+                $('#slider ul').css('left','0px');
+            });
+            resetTimer();
+            
+        };
+        
+        $('a.control_prev').click(function() {
+            moveLeft();
+            resetTimer();
+        });
+        
+        $('a.control_next').click(function() {
+            moveRight();
+            resetTimer();
+        });
+        
+        var slideTimer;
+        
+        function resetTimer() {
+            window.clearTimeout(slideTimer);
+            slideTimer = window.setTimeout(moveRight, 4000);
+        }
+        resetTimer();
+        
+        
+        
+        
     });
     </script>
 </head>
 
 <body>
+     <header id="bark">BARK</header>
     <div id="slider">
         <a href="#" class="control_next">&gt;</a>
         <a href="#" class="control_prev">&lt;</a>
@@ -90,6 +169,7 @@
             <li><img src="face.jpg"></li>
             <li><img src="face2.jpg"></li>
             <li><img src="face3.jpg"></li>
+            <li><img src="face4.JPG"></li>
         </ul>
     </div>
 </body>
