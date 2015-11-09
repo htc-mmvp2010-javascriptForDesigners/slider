@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="author" content="Colleen M. Smith">
+    <title>FAQ</title>
+    <style type="text/css">
+        body {
+            position: relative;
+            background-color: rgb(55,5,100);
+        }
+ 
+        h1{color: rgb(253,185,45); margin-left: 10px;}
+        h2 {
+            padding: 0 0 0 60px;
+            cursor: pointer;
+            height: 50px;
+            color: rgb(55,5,100);
+        }
+        p {
+            margin-left: 60px;
+            color: rgb(55,5,100);
+            font-size: 1.1em;
+        }
+
+        section {
+            border: solid 0px;
+            border-radius: 5px;
+
+        }
+        .close {
+            background: url('assets/close.png') no-repeat;
+        }
+        .open {
+            background: url('assets/open.png') no-repeat;
+        }
+        section {
+            margin: 10px;
+            padding: 10px;
+            background-color: #999;
+        }
+    </style>
+    <script type="text/javascript" src="jquery-1.11.1.js"></script>
+    <script type="text/javascript">
+        ////could use toggle which is show/hide but that would not allow for the graphics
+        $(document).ready(function () {
+            $('.answer').hide();
+            $
+
+            $('.main h2').click(function(){
+
+            var $currentAnswer = $(this).next('.answer');
+
+                if ($currentAnswer.is(':hidden')){
+
+                $('.main h2').removeClass('close');
+                $('.main h2').addClass('open');
+                $('.answer').slideUp();
+                $currentAnswer.slideDown();
+                $(this).removeClass('open');
+                $(this).addClass('close');
+
+                }else {
+
+                    $('.main h2').removeClass('close');
+                    $('.main h2').addClass('open');
+                    $('.answer').slideUp();
+                    $currentAnswer.slideUp();
+                    $(this).removeClass('close');
+                    $(this).addClass('open');
+                }
+   
+            });
+          
+        }); // end of ready()
+    </script>
+</head>
+
+<body>
+    <h1>FAQ</h1>
+    <div class="main">
+        <section>
+            <h2 class="open">First question.</h2>
+            <p class="answer">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </section>
+        <section>
+            <h2 class="open">Second question.</h2>
+            <p class="answer">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </section>
+        <section>
+            <h2 class="open">Third question.</h2>
+            <p class="answer">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </section>
+        <section>
+            <h2 class="open">Fourth question.</h2>
+            <p class="answer">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </section>
+        <section>
+            <h2 class="open">Fifth question.</h2>
+            <p class="answer">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </section>
+    </div>
+</body>
+
+</html>
