@@ -2,25 +2,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>slider</title>
+  <title>slider</title>
 <style type="text/css">
 
 *{margin:0;padding: 0;}
 
-img{width:360px;height:240px;}
+img{width:411px;height:600px;}
+
+body {
+  background-image: url(TFAWallpaper.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  margin: auto;
+}
 
 #slider {
   position: relative;
   overflow: hidden;
   margin: 20px auto 0 auto;
   border-radius: 4px;
+  border: 2px solid black;
 }
 
 #slider ul {
   position: relative;
   margin: 0;
   padding: 0;
-  height: 240px;
+  height: 600px;
   list-style: none;
 }
 
@@ -28,27 +37,28 @@ img{width:360px;height:240px;}
   position: relative;
   display: block;
   float: left;
-  width: 360px;
-  height: 240px;
+  width: 411px;
+  height: 600px;
   background: #ccc;
   text-align: center;
   line-height: 300px;
 }
 a.control_prev, a.control_next {
   position: absolute;
-  top: 40%;
+  top: 60%;
   z-index: 999;
   display: block;
   padding: 4% 3%;
   width: auto;
   height: auto;
-  background: #2a2a2a;
-  color: #fff;
+  background: black;
+  color: white;
   text-decoration: none;
   font-weight: 600;
   font-size: 18px;
-  opacity: 0.8;
+  opacity: 0.7;
   cursor: pointer;
+  border: 2px solid yellow;
 }
 
 a.control_prev:hover, a.control_next:hover {
@@ -58,64 +68,65 @@ a.control_prev:hover, a.control_next:hover {
 }
 
 a.control_prev {
-  border-radius: 0 2px 2px 0;
+  border-radius: 0 20px 20px 0;
 }
 
 a.control_next {
   right: 0;
-  border-radius: 2px 0 0 2px;
+  border-radius: 20px 0 0 20px;
 }
 </style>
-<script type="text/javascript" src="jquery-1.11.1.js"></script>
+<script type="text/javascript" src="jquery-1.11.3.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 
-	var slideCount = $('#slider ul li').length;
-	var slideWidth = $('#slider ul li').width();
-	var slideHeight = $('#slider ul li').height();
-	var sliderUlWidth = slideCount * slideWidth;
-	
-	$('#slider').css({ width: slideWidth, height: slideHeight });
-	
-	$('#slider ul').css({ width: sliderUlWidth, marginLeft: - slideWidth });
-	
+  var slideCount = $('#slider ul li').length;
+  var slideWidth = $('#slider ul li').width();
+  var slideHeight = $('#slider ul li').height();
+  var sliderUlHeight = slideCount * slideHeight;
+  
+  $('#slider').css({ width: slideWidth, height: slideHeight });
+  
+  $('#slider ul').css({ height: sliderUlHeight, marginTop: - slideHeight });
+  
     //move the last image to the left of the first image so if the user selects move right it will work
     $('#slider ul li:last-child').prependTo('#slider ul');
 
-    function moveLeft() {
+    function moveUp() {
         $('#slider ul').animate({
-            left: +slideWidth//"+=" +slideWidth+"px"
+            top: +slideHeight//"+=" +slideWidth+"px"
         }, 2000, function () {
             $('#slider ul li:last-child').prependTo('#slider ul');
-            $('#slider ul').css('left', '0px');
+            $('#slider ul').css('top', '0px');
         });
         console.log($('#slider ul').css('left'));
     };
 
-    function moveRight() {
+    function moveDown() {
         $('#slider ul').animate({
-            left: -slideWidth//"-=" +slideWidth+"px"
+            top: -slideHeight//"-=" +slideWidth+"px"
         }, 2000, function () {
             $('#slider ul li:first-child').appendTo('#slider ul');
-            $('#slider ul').css('left', '0px');
+            $('#slider ul').css('top', '0px');
         });
         resetTimer();
     };
    $('a.control_prev').click(function () {
-        moveLeft();
+        moveUp();
         resetTimer();
+
     });
 
     $('a.control_next').click(function () {
-        moveRight();
+        moveDown();
         resetTimer();
     });
 
     var slideTimer;
 
     function resetTimer(){
-    	window.clearTimeout(slideTimer);
-    	slideTimer = window.setTimeout(moveRight, 5000);
+      window.clearTimeout(slideTimer);
+      slideTimer = window.setTimeout(moveDown, 5000);
     }
     resetTimer();
 
@@ -125,12 +136,14 @@ $(document).ready(function(){
 </head>
 <body>
 <div id="slider">
-  <a href="#" class="control_next">&gt;</a>
-  <a href="#" class="control_prev">&lt;<</a>
+  <a href="#" class="control_next">next</a>
+  <a href="#" class="control_prev">prev</a>
 <ul>
-	<li><img src = "face.jpg"></li>
-	<li><img src = "face2.jpg"></li>
-	<li><img src = "face3.jpg"></li>
+  <li><img src = "rey.jpg"></li>
+  <li><img src = "finn.jpg"></li>
+  <li><img src = "kylo.jpg"></li>
+  <li><img src = "han.jpg"></li>
+  <li><img src = "leia.jpg"></li>
 </ul>
 </div>
 </body>
